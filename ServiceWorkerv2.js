@@ -1,4 +1,4 @@
-cacheVersion = "v0d1"
+const cacheVersion = "v0d1"
 
 const PopulateCache = async (fileList) => {
   const cache = await caches.open(cacheVersion)
