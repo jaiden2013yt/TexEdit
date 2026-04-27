@@ -1,0 +1,430 @@
+/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
+   HTML content. To learn how to do something, just try searching Google for questions like
+   "how to change link color." */
+   
+/* get fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+:root {
+  /* fallback for non-display-p3 things */
+  --pageColor: rgb(255, 220, 242);
+  --pageColor: color(display-p3 0.9943 0.8685 0.9448); 
+  --sectioncolor: #ffe3bb; 
+  --graySectionColor: linear-gradient(to right in oklch, #FF0000, #fc7305, #FFFF00, #00FF00, #0000FF, #8504fe);
+  --footerColor:  rgb(195, 255, 178); 
+  --cuteBorder: rgb(255, 181, 224); 
+  --cuteHeaderColor: rgb(255, 171, 196); 
+  --cuteIndentedColor: rgb(253, 232, 244);
+  --cuteTextColor: rgb(255, 162, 218); 
+  
+  /* --pageColor: rgb(10, 225, 30);
+   --pageColor: color(display-p3 0.9943 0.8685 0.9448); 
+  --sectioncolor: #FFDDDD;
+  --graySectionColor: linear-gradient(to right in oklch, #FF0000, #fc7305, #FFFF00, #00FF00, #0000FF, #8504fe);
+  --footerColor:  rgb(0, 0, 0);
+  --cuteBorder: rgb(255, 255, 0);
+  --cuteHeaderColor: rgb(255, 255, 0);
+  --cuteIndentedColor: rgb(255, 0, 255);
+  --cuteTextColor: rgb(255, 100, 18); */
+} 
+
+
+body {
+  background-color: var(--pageColor);
+  padding: 0;
+  margin: 0;
+  color: black;
+  font-family: Quantico, Verdana;
+  font-weight: 300;
+}
+
+html{
+  padding: 0;
+  margin: 0; 
+}
+
+hr {
+  border: 1px solid black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Verdana;
+  font-weight: 300;
+}
+
+button,
+input,
+textarea,
+select {
+   font-family: Quantico, Verdana;
+   font-weight: 300;
+}
+
+.PFP {
+  box-shadow: 
+      0 0 0 3px black, /* 3px */
+      0 0 0 5px white, /* 3px + 2px */
+      0 0 0 8px black; /* 5px + 3px */
+}
+
+.welcome {
+  font-family: "Tangerine", cursive;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 48pt;
+  
+  margin-top: 0.1em;
+  margin-bottom: 0.3em;
+}
+ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+  font-size: 1.1em;
+}
+.container {
+  display: flex;
+  gap: 0.35%;
+  justify-content: center;
+  padding-bottom: 11.25pt;
+}
+.accounts li {
+  /* add some indentation to the wrapped lines */
+   padding-inline-start: 0.6em;
+   text-indent: -0.6em;
+}
+.pages {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0;
+}
+.pages, .accounts {
+  word-wrap: break-word; /* fallback for older browsers! */
+  background-color: var(--sectioncolor);
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 0; /* this is very buggy and may not work */
+  padding-top: 5px;
+  padding-bottom: 5px;
+  align-content: center;
+  width: 47%;
+}
+
+.pages img {
+  box-sizing: border-box;
+  width: 95%;
+  height: auto; /* the should be default but just in case there is something wrong */
+  border-radius: 22px;
+}
+
+@media (min-width: 800px) { 
+  .pages img {
+    width: 50%;
+  }
+}
+.pages a {
+  display: flex;
+  justify-content: center;
+}
+.buttonHeader {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  
+  text-align: center;
+  font-size: 45pt;
+  color: blue;
+  
+  margin-top: 0.25em;
+  margin-bottom: 0;
+  
+  
+}
+
+
+.buttonArea {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  flex-wrap: wrap;
+  
+  padding-top: 2em;
+  padding-bottom: 2em;
+  gap: 5px;
+  border: 1px solid #bbb;
+  border-radius: 12px;
+  
+  background: var(--graySectionColor);
+  
+}
+
+.buttonArea img {
+  height: 15vmin;
+  border-radius: 3px;
+  image-rendering: pixelated;
+  
+  /* https://cssbud.com/css-generator/css-glow-generator/ */
+  -webkit-box-shadow:0px 0px 3px 2px rgba(170,170,170,1);
+  -moz-box-shadow: 0px 0px 3px 2px rgba(170,170,170,1);
+  box-shadow: 0px 0px 3px 2px rgba(170,170,170,1);
+}
+
+
+/* iframe */
+
+
+
+#displayWriting {
+  display: none;          /* hidden by default */
+  border: none;
+}
+
+#displayWriting.active {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+.buttonCodeTextArea {
+  width: 30em;
+  max-width:  calc(99vw - 10px);
+  height: auto; 
+  min-height: 3em;
+  line-height: 1em;
+}
+
+.margin1 {
+  margin-bottom: 4vh;
+}
+
+
+
+
+
+.siteFooter {
+  background-color: var(--footerColor);
+  border-top: 2px solid black;
+  
+  text-align: center;
+  width: 100vw;
+  margin: 0;
+  margin-top: 10vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
+.siteFooter img, .siteFooter p {
+  padding: 0;
+  margin: 0;
+}
+
+.lowerSiteFooter {
+  background-color: purple;
+  
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  
+}
+
+.leftMargin {
+  margin-left: 10px;
+}
+
+a.sectionCopy {
+  font-family: Verdana, Geneva, sans-serif;
+  color: cornflowerblue;
+  text-decoration-line: none;
+}
+
+a.sectionCopy:visited {
+  color: cornflowerblue;
+}
+
+
+
+
+/* UPDATES SECTION + LONGEST MARKDOWN EVER IFRAME */
+
+.cuteSideBySideContainer {
+  
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+  
+  margin-left: 0.5vw;
+}
+
+
+
+/* UPDATES */
+
+.updateSection {
+  position: relative; /* magic that shouldnt be allowed to exist in our mortsl world */
+  width: max(200px, 19vw);
+  height: min(600px, 100vh);
+  
+  border: 2px solid var(--cuteBorder);
+  border-radius: 10px;
+  background-color: var(--cuteHeaderColor);
+  
+  
+  overflow: clip;
+}
+
+@media (max-width: 550px) {
+  
+  .cuteSideBySideContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .updateSection {
+    width: stretch;
+    width: -webkit-fill-available;
+  }
+}
+
+.updateSection p {
+  margin: 0;
+}
+
+.updateSection hr {
+  border-color: rgb(255, 181, 224);
+}
+.updateHeader {
+  
+  height: 5%;
+  
+  color: white;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  
+}
+
+
+.updateList {
+  
+  background-color: var(--cuteIndentedColor);
+  height: 95%;
+  
+  overflow-y: scroll;
+  scroll-behavior: smooth; /* so the js scoll button is smooth */
+  word-wrap: break-word;
+  
+  font-size: 9pt;
+  
+}
+
+.updateList p {
+  margin-left: 0.5vw;
+}
+
+
+.updateListDownArrowIcon {
+  
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  
+  transform: translateX(-50%) scale(0.25);
+  transform-origin: bottom center;
+  /* transition: opacity 0.2s ease;  *//* nooo aniations sucks (sucks? ;3)  */
+}
+
+
+.updateListDownArrowIcon svg {
+  color: #9999bb;
+}
+
+/* Longest Markdown Ever */
+
+.cuteHeader {
+  
+  color:  var(--cuteTextColor);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  
+  margin-bottom: 2.7vh;
+  margin-top: 2.7vh;
+  text-align: center;
+}
+
+.displayLongestMarkdown {
+  height: 504px;
+  width: 424px;
+  outline: none;
+  border: none;
+}
+
+@media (max-width: 450px) {
+  .displayLongestMarkdown {
+    transform: scale(0.6787);
+    transform-origin: top left;
+  }
+  
+  .displayLongestMarkdownBox {
+    height: 357px;
+    width: 288px;
+    overflow: hidden;
+  }
+  
+  .displayLongestMarkdownBoxBox {
+    /* this centers it (i hope) */
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  
+}
+
+/* green text glow :3 */
+
+.greenTextGlow {
+  text-shadow: 2px 2px 0px rgb(197, 248, 198);
+}
+
+.newsectionContainer {
+  overflow-x: scroll;
+  width: 100lvw;
+  height: fit-content; 
+}
+
+
+
+.veryoverthetopfont {
+  font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif";
+  color: black;
+  font-weight: 700;
+}
+
+.pixelBG {
+  background-image: url(https://jaiden2013.neocities.org/Images/picktextureowo.png);
+  image-rendering: pixelated;
+  background-repeat: repeat;
+  background-size: 32px 32px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
