@@ -9,7 +9,7 @@ const updateCache = async (eventReq) => {
 	const cache = await caches.open(cacheVersion)
 	try {
 		const fetchResp = await fetch(eventReq, { mode: 'no-cors'})
-		if(fetchResp && fetchResp.ok) { //check if response is good
+		if(fetchResp && (fetchResp.ok || fetchResp.type === "opaque") { //check if response is good
 			await cache.put(eventReq, fetchResp.clone())
 			return fetchResp.clone();
 		} else {
