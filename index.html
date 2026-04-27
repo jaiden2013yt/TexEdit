@@ -888,26 +888,21 @@
     async function regesterServiceWorker() {
       let registeration;
       const DoServiceWorker = true
-      if(DoServiceWorker && ("serviceWorker" in navigator)) {
-        alert("gayood x3")
-        try {
-          const serviceWorkerCodeFetch = await fetch("ServiceWorkerv2.js")
-          const serviceWorkerText = serviceWorkerCodeFetch.text()
-          const awesomeBlob = new Blob([serviceWorkerText], {type: "text/javascript"});
-          const url = URL.createObjectURL(awesomeBlob)
-          registeration = await navigator.serviceWorker.register(url, {scope: "./"})
-          alert("registeration sucsesc: " + registeration)
-        } catch(cuteBuggieUwU) {
-          alert("error registering: " + cuteBuggieUwU + "trying again without blob")
-          try {
-            registeration = await navigator.serviceWorker.register("ServiceWorkerv2.js", {scope: "./"})
-            alert("registeration sucsesc: " + registeration)
-          } catch(cuteBuggieUwU) {
-            alert("error registering: " + cuteBuggieUwU )
-          }
-        }
+	  	if(!DoServiceWorker) {
+	  		return;
+	  	}
+      if(!("serviceWorker" in navigator)) {
+				console.log("serviceWorkers arent supported")
+				return;
+	  	}
+		  
+      try {
+        registeration = await navigator.serviceWorker.register("ServiceWorkerv2.js", {scope: "./"})
+        alert("registeration sucsesc: " + JSON.stringify(registeration))
+      } catch(cuteBuggieUwU) {
+        alert("error registering: " + cuteBuggieUwU )
       }
-    }
+		}
     setTimeout(regesterServiceWorker, 1000)
     
   </script>
