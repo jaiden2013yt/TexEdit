@@ -3,19 +3,34 @@ const PopulateCache = async (fileList) => {
 	await cache.addAll(fileList)
 }
 
-self.addEventListener("install", (event) => {
-  PopulateCache(["index.html",])
+const updateCache = async (eventResp) => {
+	const cache = await caches.open("v0d1")
+	try {
+		const fetchResp = await fetch(eventResp)
+		await cache.put(eventResp, fetchResp.clone())
+	} catch(eggies) {
+		console.log("a error occorder while saving a file into cache (updateCache function): ", url, " ", eggies)
+	}
+}
 
+self.addEventListener("install", (event) => {
+	event.waitUntil(
+  	PopulateCache(["index.html",])
+	)
 })
 
-self.addEventListener("fetch", (event) => {
-  console.log("Handling fetch event for", event.request.url);
-	const cachedAsset = caches.match(event.request)
-	if(cachedAsset === undefined) {
-		event.respondWith(fetch(event.request))
-		return;
-	}
-	event.respondWith(cachedAsset)
+self.addEventListener("fetch",  (event) => {
+	event.respondWith(async () => {
+  	console.log("Handling fetch event for", event.request.url);
+		const cachedAsset = await caches.match(event.request)
+		if(cachedAsset === undefined) {
+			return fetch(event.request)
+		}
+		return cachedAsset
+	})
+	event.waitUntil(
+		updateCache(event.request)
+	)
 	return; //not needed
 	
 });
