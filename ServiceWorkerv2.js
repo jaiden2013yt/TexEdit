@@ -42,7 +42,7 @@ self.addEventListener("fetch",  (event) => {
 		const cachedAsset = await caches.match(event.request)
 		if(cachedAsset === undefined) {
 			try {
-				return await fetch(event.request { mode: 'no-cors'}
+				return await fetch(event.request { mode: 'no-cors'})
 			} catch(buniiesUwU) {
 				console.log("failed to fetch asset: ", buniiesUwU)
 			}
