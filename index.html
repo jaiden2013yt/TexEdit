@@ -7,12 +7,13 @@
     <link href="/style.css" rel="stylesheet" type="text/css" media="all">
     
     
-    <link rel="manifest" href="https://jaiden2013.neocities.org/JavaScript-projects/inputTypeFile/manifest.json">
+    <link rel="manifest" href="manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     
-    <script src=https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js></script>
-    
+    <!--<script src=https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js></script>
+    no longer used
+	-->
     <style>
       @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
       @import url('https://fonts.cdnfonts.com/css/minecraft-3?styles=41305');
@@ -890,16 +891,16 @@
       if(DoServiceWorker && ("serviceWorker" in navigator)) {
         alert("gayood x3")
         try {
-          const serviceWorkerCodeFetch = await fetch("/JavaScript-projects/inputTypeFile/ServiceWorkerv2.js")
+          const serviceWorkerCodeFetch = await fetch("ServiceWorkerv2.js")
           const serviceWorkerText = serviceWorkerCodeFetch.text()
           const awesomeBlob = new Blob([serviceWorkerText], {type: "text/javascript"});
           const url = URL.createObjectURL(awesomeBlob)
-          registeration = await navigator.serviceWorker.register(url, {scope: "/JavaScript-projects/inputTypeFile/"})
+          registeration = await navigator.serviceWorker.register(url, {scope: "./"})
           alert("registeration sucsesc: " + registeration)
         } catch(cuteBuggieUwU) {
           alert("error registering: " + cuteBuggieUwU + "trying again without blob")
           try {
-            registeration = await navigator.serviceWorker.register("/JavaScript-projects/inputTypeFile/ServiceWorkerv2.js", {scope: "/JavaScript-projects/inputTypeFile/"})
+            registeration = await navigator.serviceWorker.register("ServiceWorkerv2.js", {scope: "./"})
             alert("registeration sucsesc: " + registeration)
           } catch(cuteBuggieUwU) {
             alert("error registering: " + cuteBuggieUwU )
