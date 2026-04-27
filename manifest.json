@@ -1,7 +1,7 @@
 {
   "name": "Texedit",
   "short_name": "Texedit",
-  "scope": "/JavaScript-projects/inputTypeFile/",
+  "scope": "./",
   "icons": [
     {
       "src": "https://jaiden2013.neocities.org/JavaScript-projects/inputTypeFile/icon512px.jpg",
