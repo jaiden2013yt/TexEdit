@@ -10,9 +10,9 @@ const updateCache = async (eventReq) => {
 	try {
 		const fetchResp = await fetch(eventReq)
 		if(fetchResp && fetchResp.ok) { //check if response is good
-		await cache.put(eventReq, fetchResp.clone())
-		 return fetchResp.clone();
-	}
+			await cache.put(eventReq, fetchResp.clone())
+			return fetchResp.clone();
+		}
 	} catch(eggies) {
 		console.log("a error occorder while saving a file into cache (updateCache function): ", eventReq.url, " | ", eggies)
 		 return new Response("Network error happened", {
@@ -22,24 +22,7 @@ const updateCache = async (eventReq) => {
 	}
 }
 
-const reGetCache = async (request) => {
-		
-	try {
-		const cache = await caches.open(cacheVersion)
-		const fish = await caches.match(request)
-		if (fish === undefined) {
-			return;
-		}
-		const fetchResp = await fetch(request)
-		if(fetchResp && fetchResp.ok) { //check if response is good
-		await cache.put(request, fetchResp)
-		return;
-	} catch(een) {
-		console.log(een)
-		return;
-	}
-	
-}
+
 
 self.addEventListener("install", (event) => {
 	event.waitUntil(
@@ -58,14 +41,14 @@ self.addEventListener("fetch",  (event) => {
   	console.log("Handling fetch event for", event.request.url);
 		const cachedAsset = await caches.match(event.request)
 		if(cachedAsset === undefined) {
-			return await updateCache(event.request)
+			return await fetch(event.request)
 		}
 		//isCache = true
 		return cachedAsset
 	})())
 	
 	event.waitUntil(
-		reGetCache(event.request)
+		updateCache(event.request)
 	)
 	return; //not needed
 	
