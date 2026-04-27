@@ -12,6 +12,8 @@ const updateCache = async (eventReq) => {
 		if(fetchResp && fetchResp.ok) { //check if response is good
 			await cache.put(eventReq, fetchResp.clone())
 			return fetchResp.clone();
+		} else {
+			console.log("the fetch wasnt good :(", fetchResp,  eventReq.url)
 		}
 	} catch(eggies) {
 		console.log("a error occorder while saving a file into cache (updateCache function): ", eventReq.url, " | ", eggies)
