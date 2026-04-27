@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Page</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    
+    
+    <link rel="manifest" href="https://jaiden2013.neocities.org/JavaScript-projects/inputTypeFile/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js></script>
+    
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+      @import url('https://fonts.cdnfonts.com/css/minecraft-3?styles=41305');
+      @import url('https://fontsapi.zeoseven.com/572/main/result.css');
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
+      @font-face {
+        font-family: "OpenMoji";
+        src: url("https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji/font/OpenMoji-color-glyf_colr_0/OpenMoji-color-glyf_colr_0.woff2") format("woff2");
+        unicode-range: U+2D, U+A9,U+AE,U+200D,U+203C,U+2049,U+20E3,U+2117,U+2120,U+2122,U+2139,U+2194-2199,U+21A9,U+21AA,U+229C,U+231A,U+231B,U+2328,U+23CF,U+23E9-23F3,U+23F8-23FE,U+24C2,U+25A1,U+25AA-25AE,U+25B6,U+25C0,U+25C9,U+25D0,U+25D1,U+25E7-25EA,U+25ED,U+25EE,U+25FB-25FE,U+2600-2605,U+260E,U+2611,U+2614,U+2615,U+2618,U+261D,U+2620,U+2622,U+2623,U+2626,U+262A,U+262E,U+262F,U+2638-263A,U+2640,U+2642,U+2648-2660,U+2663,U+2665,U+2666,U+2668,U+267B,U+267E,U+267F,U+2692-2697,U+2699,U+269B,U+269C,U+26A0,U+26A1,U+26A7,U+26AA,U+26AB,U+26B0,U+26B1,U+26BD,U+26BE,U+26C4,U+26C5,U+26C8,U+26CE,U+26CF,U+26D1,U+26D3,U+26D4,U+26E9,U+26EA,U+26F0-26F5,U+26F7-26FA,U+26FD,U+2702,U+2705,U+2708-270D,U+270F,U+2712,U+2714,U+2716,U+271D,U+2721,U+2728,U+2733,U+2734,U+2744,U+2747,U+274C,U+274E,U+2753-2755,U+2757,U+2763,U+2764,U+2795-2797,U+27A1,U+27B0,U+27BF,U+2934,U+2935,U+2B05-2B07,U+2B0C,U+2B0D,U+2B1B,U+2B1C,U+2B1F-2B24,U+2B2E,U+2B2F,U+2B50,U+2B55,U+2B58,U+2B8F,U+2BBA-2BBC,U+2BC3,U+2BC4,U+2BEA,U+2BEB,U+3030,U+303D,U+3297,U+3299,U+E000-E004,U+E006-E009,U+E010,U+E011,U+E040-E070,U+E080-E09C,U+E09E-E0B4,U+E0C0-E0CC,U+E0FF-E10D,U+E140-E14A,U+E150-E157,U+E181-E189,U+E1C0-E1C4,U+E1C6-E1DA,U+E200-E216,U+E240-E269,U+E280-E283,U+E2C0-E2C4,U+E2C6-E2DA,U+E300-E303,U+E305-E30F,U+E312-E316,U+E318-E322,U+E324-E329,U+E32B,U+E340-E348,U+E380,U+E381,U+E420-E435,U+F000,U+F77A,U+F8FF,U+FE0F,U+1F004,U+1F0CF,U+1F10D-1F10F,U+1F12F,U+1F16D-1F171,U+1F17E,U+1F17F,U+1F18E,U+1F191-1F19A,U+1F1E6-1F1FF,U+1F201,U+1F202,U+1F21A,U+1F22F,U+1F232-1F23A,U+1F250,U+1F251,U+1F260-1F265,U+1F300-1F321,U+1F324-1F393,U+1F396,U+1F397,U+1F399-1F39B,U+1F39E-1F3F0,U+1F3F3-1F3F5,U+1F3F7-1F4FD,U+1F4FF-1F53D,U+1F549-1F54E,U+1F550-1F567,U+1F56F,U+1F570,U+1F573-1F57A,U+1F587,U+1F58A-1F58D,U+1F590,U+1F595,U+1F596,U+1F5A4,U+1F5A5,U+1F5A8,U+1F5B1,U+1F5B2,U+1F5BC,U+1F5C2-1F5C4,U+1F5D1-1F5D3,U+1F5DC-1F5DE,U+1F5E1,U+1F5E3,U+1F5E8,U+1F5EF,U+1F5F3,U+1F5FA-1F64F,U+1F680-1F6C5,U+1F6CB-1F6D2,U+1F6D5-1F6D8,U+1F6DC-1F6E5,U+1F6E9,U+1F6EB,U+1F6EC,U+1F6F0,U+1F6F3-1F6FC,U+1F7E0-1F7EB,U+1F7F0,U+1F90C-1F93A,U+1F93C-1F945,U+1F947-1F9FF,U+1FA70-1FA7C,U+1FA80-1FA8A,U+1FA8E-1FAC6,U+1FAC8,U+1FACD-1FADC,U+1FADF-1FAEA,U+1FAEF-1FAF8,U+1FBC5-1FBC9,U+E0061-E0067,U+E0069,U+E006C-E0079,U+E007F;
+        }
+
+      
+      .DisplayCSS {
+        
+          background-color: #dddddd;
+          border: 1px solid #aaaaaa;
+          
+          border-radius: 10px;
+          
+          margin-top: 0.5rem;
+          
+          padding-left: 0.5rem;
+          padding-bottom: 0.2rem;
+          margin-left: 0.5rem;
+          margin-right: 0.5rem;
+          margin-bottom: 1rem;
+          height: 70vh;
+          overflow-y: scroll;
+          white-space: pre; 
+          line-height: 1.5em;
+      }
+      
+      .wrapEnabled {
+        white-space: pre-wrap;
+
+        word-break: break-word;
+        overflow-wrap: break-word;
+
+        overflow-y: scroll;
+        overflow-x: hidden;
+      }
+      
+      .gayButton {
+        background: linear-gradient(to right in oklch, #FF0000, #fc7305, #FFFF00, #00FF00, #0000FF, #8504fe);
+        border-radius: 9999999px;
+        
+        color: white; /* text color */
+        text-shadow: 0px 0px 0.3em black;
+      }
+      
+      .selectedFileButton {
+        background-color: AntiqueWhite;
+        border-radius: 9999999px;
+        color: CornflowerBlue;
+        border: 1px solid white;
+      }
+      
+      /*
+      *  replace text modal
+      */
+      
+      #replaceTextDialog {
+        
+        box-sizing: border-box;
+        
+        border-radius: 5vh;
+        border: 1px solid grey;
+        background: #252525;
+        
+        padding-left: 3vh;
+        padding-right: 3vh;
+        
+        height: 50vh;
+        width: 33vh;
+        
+        overflow: scroll;
+      }
+      dialog::backdrop {
+        background: rgb(0 0 0 / 60%);
+      }
+      
+      #replaceTextDialogChild {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-rows: 85% 1fr;
+        gap: 0.5vh;
+      }
+      
+      #replaceTextButtons {
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        
+        /* width: 100%;
+        height: 100%; */
+        background: #2E2E2E;
+        border-radius: 2vh;
+        
+        color: white;
+      }
+      
+      #replateTextEndButtons {
+        display: flex;
+        flex-direction: rows;
+        /* align-items: center; */
+        justify-content: center;
+        
+        background: #2E2E2E;
+        border-radius: 2vh;
+        
+        color: white;
+      }
+      
+      #replateTextEndButtons > *, #replaceTextButtons > * {
+        background: #1f1f1f;
+        color: white;
+        border: none;
+        border-radius: 1vh;
+      }
+      
+      #replaceTextButtons > * {
+        width: 90%;
+        height: 24%;
+      }
+      #replaceTextSearcher, #replaceTextReplacer {
+        box-sizing: border-box;
+        background: #1f1f1f;
+        color: white;
+        width: 100%;
+        height: 100%;
+        font-size: 1.5rem;
+      }
+      
+      dialog::backdrop {
+        background: rgb(0 0 0 / 60%);
+      }
+    </style>
+    
+    <script src="https://github.com/nassiry/base64plus/releases/latest/download/base64Plus.umd.js"></script>
+  </head>
+  <body>
+  
+  <p><a href="https://jaiden2013.neocities.org">main page</a></p> 
+ 
+ 
+ <h1 id="charDicPlay">0 characters 0 words</h1>
+  
+   <button onclick="inpuT.click()" class="gayButton">open file (also this is the gay button)</button>
+   <input id="inpuT" type="file" style="display: none;" onchange="displayFileText()">
+   <button onclick="displayFileText()">reopen</button>
+   
+  <br>
+  <span id="fileList"></span>
+  <button onclick="createNewFile()">+</button>
+  <br>
+  <button onclick="removeActiveFile()">remove active file</button>
+  <input id="filenameInput" type="text" placeholder="filename" oninput="renameFile()" value="new file" tabindex="-1"> 
+  
+  <p id="DISPLAY" class="DisplayCSS wrapEnabled" contenteditable="plaintext-only" style="tab-size: 4;"></p>
+ 
+ 
+  <button onclick="copyCodeYAY()">copy</button>
+  <button onclick="saveTextToFiles()">save file (on the pwa on ios use copy instead)</button>
+  <button onclick="removeStorage()">remove storage</button>
+  
+  <br>
+  
+  <button onclick="JSONifyText(false)">beautify json :3</button>
+  <button onclick="JSONifyText(true)">minify json :3</button>
+  
+
+  
+  
+  <button onclick="showReplaceTextModal()">Replace Text</button>
+  
+  <dialog id="replaceTextDialog">
+    <div  id="replaceTextDialogChild">
+      <div id="replaceTextButtons">
+        <div><input id="replaceTextSearcher" type="text" placeholder="searcher" tabindex="-1"></div>
+        <div><input id="replaceTextReplacer" type="text" placeholder="replacer" tabindex="-1"></div>
+        <div>
+          <span>use regex: </span>
+          <input id="replaceTextIsRegex"  type="checkbox">
+        </div>
+        <div>
+          <span>case sensitive: </span>
+          <input id="replaceTextIsCaps" type="checkbox" checked>
+        </div>
+      </div>
+    
+      <div id="replateTextEndButtons">
+        <button onclick="replaceText()">replace!</button>
+        <button onclick="closeReplaceTextModal()">close</button>
+      </div>
+      
+    </div>
+  </dialog>
+  
+  <button onclick="showProgramOpeningModal()">open text in program</button>
+  
+  <dialog id="openProgramDialog">
+    <button onclick="openTextInProgram('overpassTurbo')">overpass turbo</button>
+    <button onclick="openTextInProgram('JSONLint')">JSONLint</button>
+    <button onclick="openTextInProgram('wolframAlpha')">wolfram alpha</button>
+    <button onclick="openTextInProgram('cyberChef')">cyber chef</button>
+    <button onclick="hideProgramOpeningModal()">close</button>
+  </dialog>
+  
+  
+  <br>
+  <span>font: </span>
+  <select onchange="setFont()" id="fontSelectionSelect" tabindex="-1">
+    <option value="scifi">SciFi (Quantico)</option>
+    <option value="mono">monospaced (jet brains)</option>
+    <option value="sansSerif">sans-serif</option>
+    <option value="minecraft">minecraft (Mojangles & GNU Unifont)</option>
+    <option value="Nunito">bubbly (Nunito)</option>
+    <option value="Tangerine">fancy (Tangerine)</option>
+  </select>
+  <span>overlay font: </span>
+  <select onchange="setFont()" id="fontOverlaySelectionSelect" tabindex="-1">
+    <option value="none">- none -</option>
+    <option value="notoColor">Color Emoji - Noto</option>
+    <option value="OpenMoji">Color Emoji - OpenMoji</option> 
+  </select>
+  <span>autocorrect: </span><input onchange="disableAutocomplete()" id="autocorrectCheckbox" type="checkbox" checked>
+  
+  <span>word wrap: </span>
+  <input onchange="toggleWorpWrap()" id="wordWrapInput" type="checkbox" checked>
+  
+  <span>tab width: </span>
+  <input id="tabSwidtHselection" type="range" min="0" max="10" value="4">
+  <span id="tabWidthIndecator" style="display: inline-block; width: 2ch;">3</span>
+  
+  <span>font multi: </span>
+  <input id="fontmultiSlider" type="range" min="0.02" max="10" value="1" step="0.01" oninput="setFontMultiSlider()">
+  <input id="fontmultiNumber" type="number" value="1.00" style="width: 6ch;" oninput="setFontMultiNum()" tabindex="-1">
+  
+  <!--
+  <span>text editor height</span>
+  <button onclick="TextEDitorHeight()">TEMP</button> -->
+  
+  
+  <br><br><br><br>
+  
+  <p>the charcter counter is made to give the same numbers as wordcounter.net :3</p>
+  
+  <p>last update the may require deleting all your storage then re pasting in files / re installing the pwa: aprill 14 at 1:54 pm pasific time.</p>
+  
+  <p>if oyu know any tools that text can be imported into via adding it into a url :3</p>
+  
+  <p>i hate cache :( neocities pleaee work</p>
+  <br><br><br><br>
+  
+  <p><a href="https://duckduckgo.com/?q=how+to+install+progressive+web+apps+on+%5Bbrowser+%2B+version+and+os+%2B+version%5D">INSTALL THIS AS A PWA ON WHATEVER DEVICES YOU OWN THAT SUPORT IT, CLICK THIS FOR INFORATION ON HOW TO INSTALL THEM, YOU WILL WANT TO WE ON THIS WEBPAGE WHILE YOU PROFORM THE CLICKS TO INSTALL INSTALL THIS PWA NOW!!! INSTALL THIS PWA NOW!!! INSTALL THIS PWA NOW!!! INSTALL THIS PWA NOW!!! INSTALL THIS PWA NOW!!! INSTALL THIS PWA NOW!!! INSTALL THIS PWA NOW!!! INSTALL THIS PWA NOW!!!</a></p>
+  <script>
+    
+    const DISPLAY = document.getElementById("DISPLAY")
+    const tabSwidtHselection = document.getElementById("tabSwidtHselection")
+    const tabWidthIndecator = document.getElementById("tabWidthIndecator")
+    const charDicPlay = document.getElementById("charDicPlay")
+    const fileList = document.getElementById("fileList")
+    const filenameInput = document.getElementById("filenameInput")
+    const wordWrapInput = document.getElementById("wordWrapInput")
+    const replaceTextSearcher = document.getElementById("replaceTextSearcher")
+    const replaceTextReplacer = document.getElementById("replaceTextReplacer")
+    const replaceTextIsRegex = document.getElementById("replaceTextIsRegex")
+    const fontSelectionSelect = document.getElementById("fontSelectionSelect")
+    const autocorrectCheckbox = document.getElementById("autocorrectCheckbox")
+    const replaceTextDialog = document.getElementById("replaceTextDialog")
+    const fontmultiSlider = document.getElementById("fontmultiSlider")
+    const fontmultiNumber = document.getElementById("fontmultiNumber")
+    const replaceTextIsCaps = document.getElementById("replaceTextIsCaps")
+    const fontOverlaySelectionSelect = document.getElementById("fontOverlaySelectionSelect")
+    const openProgramDialog = document.getElementById("openProgramDialog")
+    
+    async function displayFileText() {
+      
+      const UwUfile = await document.getElementById("inpuT").files[0]
+      
+      createNewFile()
+      filenameInput.value = UwUfile.name
+      renameFile()
+      
+      DISPLAY.innerText = await UwUfile.text()
+      
+       window.jaySon = "your text is not vaild json :((";
+       try{ jaySon = JSON.parse(DISPLAY.innerText) } catch(bugs) {} //fuk uu error >:3
+    }
+    
+   
+   
+   
+    
+    function JSONifyText(direction) {
+      
+      if(direction) { // if direction is true
+        try {
+          DISPLAY.innerText = "" + JSON.stringify(JSON.parse(DISPLAY.innerText))
+        } catch(bugs) {
+          alert("waah, da j(g)ayson failed to strigify :((((")
+        }
+        
+      } else {
+        
+        // parse my paws :3
+        
+        //let pawersted = "ERROR wahhh"
+        
+        //try {
+        let pawersted = JSON.stringify(JSON.parse(DISPLAY.innerText))
+        //} catch (bugs) { 
+        //  alert("aaaguhgu i failed two parse :(((((")
+        //  return;
+        //}
+          
+        pawersted = pawersted.replaceAll('{', '{\n')
+        pawersted = pawersted.replaceAll('}', '\n}')
+        
+        pawersted = pawersted.replaceAll('[', '[\n')
+        pawersted = pawersted.replaceAll(']', '\n]')
+        
+        pawersted = pawersted.replaceAll(',"', ',\n"')
+        pawersted = pawersted.replaceAll(',{', ',\n{')
+        pawersted = pawersted.replaceAll(',[', ',\n[')
+        pawersted = pawersted.replaceAll(',true', ',\ntrue')
+        pawersted = pawersted.replaceAll(',false', ',\nfalse')
+        pawersted = pawersted.replaceAll(',null', ',\nnull')
+        pawersted = pawersted.replaceAll(',0', ',\n0')
+        pawersted = pawersted.replaceAll(',1', ',\n1')
+        pawersted = pawersted.replaceAll(',2', ',\n2')
+        pawersted = pawersted.replaceAll(',3', ',\n3')
+        pawersted = pawersted.replaceAll(',4', ',\n4')
+        pawersted = pawersted.replaceAll(',5', ',\n5')
+        pawersted = pawersted.replaceAll(',6', ',\n6')
+        pawersted = pawersted.replaceAll(',7', ',\n7')
+        pawersted = pawersted.replaceAll(',8', ',\n8')
+        pawersted = pawersted.replaceAll(',9', ',\n9')
+        pawersted = pawersted.replaceAll(',-', ',\n-')
+        
+        pawersted = pawersted.replaceAll('":', '":  ')
+        
+        let tabcownt = 0 //zewo :3
+        
+        const pawerject = pawersted.split("\n")
+        
+        pawersted = ""
+        
+        console.log(pawerject)
+        
+        pawerject.forEach((substr) => {
+          
+          if (substr.endsWith("}")) {
+            tabcownt--
+          }
+          
+          if (substr.endsWith("]")) {
+            tabcownt--
+          }
+          
+          if (substr.endsWith("},")) {
+            tabcownt--
+          }
+          
+          if (substr.endsWith("],")) {
+            tabcownt--
+          }
+          
+          pawersted = "" + pawersted + "\t".repeat(tabcownt) + substr + "\n"
+          
+          if (substr.endsWith("{")) {
+            tabcownt++
+          }
+          
+          if (substr.endsWith("[")) {
+            tabcownt++
+          }
+        })
+        
+        DISPLAY.innerText = pawersted
+        
+      }
+    }
+    
+    
+    
+    
+    
+    tabSwidtHselection.addEventListener("input", (event) => { 
+      SetTabWidth()
+    })
+    
+    function SetTabWidth() {
+      //tabSwidtHselection
+      settings.tabWidth = tabSwidtHselection.value
+      
+      console.log(tabSwidtHselection.value)
+      
+      
+      tabWidthIndecator.innerText = "" + tabSwidtHselection.value
+      
+      DISPLAY.style.tabSize = tabSwidtHselection.value
+    }
+    
+    async function copyCodeYAY() {
+      try {
+        await navigator.clipboard.writeText(DISPLAY.innerText)
+        alert("copied :3 (i hope)")
+      } catch(bugs) {
+        alert("copying failed :(")
+        console.log("copy failed: " + bugs)
+      }
+    }
+    
+    function replaceText() {
+      //replaceTextSearcher.value replaceTextReplacer.value replaceTextIsRegex.value replaceTextIsCaps.value
+      let search = replaceTextSearcher.value
+      
+      
+      if (!replaceTextIsRegex.checked) {
+        //escape regex
+        search = search.replace(/\$/g, '$$$$');
+      } 
+      
+      try {
+        if (replaceTextIsCaps.checked) {
+          search = new RegExp(search, "gi")
+        } else {
+          search = new RegExp(search, "gi")
+        }
+      } catch (bugs) {
+        alert("failed to convert to regex, the error was: " + bugs)
+      }
+        
+      try {
+        DISPLAY.innerText = DISPLAY.innerText
+          .replaceAll(
+           search, 
+           replaceTextReplacer.value
+        )
+        
+        replaceTextSearcher.value = ""
+        replaceTextReplacer.value = ""
+        replaceTextDialog.close()
+        
+      } catch (bagBugies) {
+        alert("failed to replace text, the error was: " + bagBugies)
+      }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    function saveTextToFiles() {
+      //const Text = DISPLAY.innerText
+      const TheTextFile = new File([DISPLAY.innerText], "myFile.txt", {
+        type: "text/plain",
+      });
+      
+      const MyAwesomeUrLblob = URL.createObjectURL(TheTextFile)
+      
+      
+      const gAy = document.createElement("a");
+      gAy.href = MyAwesomeUrLblob;
+      gAy.download = document.getElementById("file" + activeFile).innerText; 
+      gAy.style.display = "none";
+  
+      document.body.appendChild(gAy);
+      gAy.click();
+  
+      document.body.removeChild(gAy);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // algorthim taken from https://wordcounter.net so as to have mostly parody with their algorithim
+    
+    
+    
+    setInterval(updateTextStats, 1000)
+    
+    let oldtext;
+    
+    function updateTextStats() {
+      
+      //dont run if the text hasnt changed
+      if (oldtext === DISPLAY.innerText) return;
+      const daText = DISPLAY.innerText
+      oldtext = daText
+      
+      countCharacter(daText)
+      splitWords(daText)
+      
+      charDicPlay.innerText = 
+        countCharacter(daText) + " characters "
+        + splitWords(daText) + " words"
+      
+    }
+    
+    function countCharacter(daText) {
+      let chars;
+      
+      if (daText.length < 100000) {
+        chars =  daText.match(/(?:[^\r\n]|\r(?!\n))/g); 
+        chars = chars !== null ? chars.length : 0;
+      } else { 
+        chars = daText.length
+      }
+      
+      return chars;
+    }
+    
+    validLetters = [
+     "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+     "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+     "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+     "À","Á","Â","Ã","Ä","Å","Æ","Ç","È","É","Ê","Ë","Ì","Í","Î","Ï", "Ð","Ñ","Ò","Ó","Ô","Õ","Ö","Ø","Ù","Ú","Û","Ü","Ý","Þ","ß",
+     "à","á","â","ã","ä","å","æ","ç","è","é","ê","ë","ì","í","î","ï", "ð","ñ","ò","ó","ô","õ","ö","ø","ù","ú","û","ü","ý","þ","ÿ",
+     "-",
+     "–",
+     "'", "’","’"
+	
+    ]
+
+    function splitWords(words) {
+    	let splitArray = [];
+    	let substr = false;
+		
+    	for(const char of words) {
+        
+    		if (validLetters.includes(char)) {
+    		  //console.log("owo, its included")
+    			substr = true
+
+    		} else if (substr) {
+
+    			splitArray.push("a")
+    			substr = false
+    		}
+    	}
+
+    	if (substr) splitArray.push("a")
+
+    	
+    	
+    	return splitArray.length;
+    }
+  
+  
+    function toggleWorpWrap() {
+      
+      settings.wordWrap = wordWrapInput.checked
+      FileFromKey(activeFile).settings.wordWrap = wordWrapInput.checked
+      
+      if (wordWrapInput.checked) {
+        DISPLAY.classList.add("wrapEnabled")
+      } else {
+        DISPLAY.classList.remove("wrapEnabled")
+      }
+      
+      saveToLocalStorage()
+    }
+  
+    const fontStacks = {
+      scifi: {st: "Quantico, Verdana", wg: "300"},
+      mono: {st: "'JetBrains Mono', monospace", wg: "400"},
+      sansSerif: {st: "sans-serif", wg: "400"},
+      minecraft: {st: "'Minecraft', 'Unifont', sans-serif", wg: "400"},
+      Nunito: {st: "'Nunito', sans-serif", wg: "700"},
+      Tangerine: {st: "'Tangerine', cursive, sans-serif", wg: "700"}
+    }
+    const fontBonuses = {
+      none: "",
+      notoColor: "'Noto Color Emoji',",
+      OpenMoji: "'OpenMoji',",
+    }
+    function setFont() {
+    // fontSelectionSelect.value fontOverlaySelectionSelect.value
+    
+      
+      
+      const activeFont = fontStacks[fontSelectionSelect.value]
+      const secondaryFont = fontBonuses[fontOverlaySelectionSelect.value]
+      if(activeFont === undefined) {
+        alert("the selected font doesnt exist for some reason")
+      }
+      if(secondaryFont === undefined) {
+        alert("the selected *overlay* font doesnt exist for some reason")
+      }
+      DISPLAY.style.fontFamily = "" + secondaryFont + activeFont.st
+      //alert("" + secondaryFont + activeFont.st)
+      DISPLAY.style.fontWeight = activeFont.wg 
+
+      FileFromKey(activeFile).settings.font = {mainFont: fontSelectionSelect.value, secondFont: fontOverlaySelectionSelect.value}
+      
+      saveToLocalStorage()
+    }
+  
+  
+  
+  
+  
+  
+    let fileIdCount, activeFile, files;
+    let settings = {}
+    
+    if ('indexedDB' in window) {
+      //alert("pecans :3")
+    }
+    
+    if (localStorage.getItem("StoreData") !== null) {
+      dataFromStorage = JSON.parse(localStorage.getItem("StoreData"))
+      
+      fileIdCount = dataFromStorage.fileIdCount
+      activeFile = dataFromStorage.activeFile
+      files = dataFromStorage.FileContent
+      settings = dataFromStorage.settings
+      
+      files.forEach((elment) => {
+        fileList.innerHTML = fileList.innerHTML + "<button id='file" + elment.key + "' onclick='openFile(" + elment.key + ")'>" + elment.fileName + "</button>"
+      })
+      
+      document.getElementById("file" + activeFile).classList.add("selectedFileButton")
+      DISPLAY.innerText = FileFromKey(activeFile).text
+      filenameInput.value = FileFromKey(activeFile).fileName
+      
+      wordWrapInput.checked = FileFromKey(activeFile).settings.wordWrap
+      autocorrectCheckbox.checked = settings.AutoComplete
+      tabSwidtHselection.value = settings.tabWidth
+      fontmultiSlider.value = settings.FontMulti
+      fontSelectionSelect.value = FileFromKey(activeFile).settings.font.mainFont
+      fontOverlaySelectionSelect.value = FileFromKey(activeFile).settings.font.secondFont
+      
+      toggleWorpWrap()
+      disableAutocomplete()
+      SetTabWidth()
+      setFontMultiSlider()
+      setFont()
+    } else {
+  
+    fileIdCount = 1;
+    activeFile = 1;
+    settings = {wordWrap: true, AutoComplete: true, tabWidth: 3, FontMulti: 1};
+    files = [{key: 1,  text: "", fileName: "new file", settings: {wordWrap: true, font: {mainFont: "scifi", secondFont: "none"}}}]
+    fileList.innerHTML = "<button id='file1' onclick='openFile(1)' class='selectedFileButton'>new file</button>"
+    }
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has("addtext")) {
+      createNewFile()
+      DISPLAY.innerText = urlParams.get("addtext")
+      saveToLocalStorage()
+    }
+    function FileFromKey(key) {
+      return files.find(item => item.key === key);
+    }
+    
+    function createNewFile() {
+      fileIdCount++
+      files.push({key: fileIdCount, text: "", fileName: "new file", settings: {wordWrap: settings.wordWrap, font: {mainFont: "scifi", secondFont: "none"}}})
+      
+      fileList.innerHTML = fileList.innerHTML + "<button id='file" + fileIdCount + "' onclick='openFile(" + fileIdCount + ")'>new file</button>"
+      openFile(fileIdCount)
+    }
+    
+    function openFile(fileID) {
+      let daPrevFileForTextSet = FileFromKey(activeFile)
+      if (daPrevFileForTextSet !== undefined) {
+        daPrevFileForTextSet.text = DISPLAY.innerText
+      }
+      
+      activeFile = fileID
+      DISPLAY.innerText = FileFromKey(fileID).text 
+      filenameInput.value = document.getElementById("file" + fileID).innerText 
+      
+      document.querySelectorAll(".selectedFileButton").forEach((elem) => {
+        
+        elem.classList.remove("selectedFileButton")
+      })
+      
+      const undoToggleWorpWrapSettingsSet = settings.wordWrap
+      wordWrapInput.checked = FileFromKey(fileID).settings.wordWrap
+      toggleWorpWrap()
+      settings.wordWrap = undoToggleWorpWrapSettingsSet
+      
+      fontSelectionSelect.value = FileFromKey(fileID).settings.font.mainFont
+      fontOverlaySelectionSelect.value = FileFromKey(fileID).settings.font.secondFont
+      setFont()
+      
+      document.getElementById("file" + fileID).classList.add("selectedFileButton")
+      
+      saveToLocalStorage()
+    }
+    
+    function removeActiveFile() {
+      if (window.confirm("Do you want to delete " + document.getElementById('file' + activeFile).innerText + "?")) {
+        const removeIndex = files.indexOf(FileFromKey(activeFile))
+        
+        files.splice(removeIndex, 1)
+        document.getElementById("file" + activeFile).remove()
+        //console.log(removeIndex < files.length)
+        if (removeIndex < files.length) {
+          openFile(files[removeIndex].key)
+        } else if(removeIndex !== 0) {
+          openFile(files[removeIndex-1].key)
+        } else {
+          //display no file, the open a new file after few frames
+          DISPLAY.innerText = "no file open D:, please select a file or open a new one :3"
+          filenameInput.value = ""
+          setTimeout(createNewFile, 40)
+        }
+      }
+    }
+    
+    function renameFile() {
+      document.getElementById("file" + activeFile).innerText = filenameInput.value
+      FileFromKey(activeFile).fileName = filenameInput.value
+      
+      saveToLocalStorage()
+    }
+    
+    function saveToLocalStorage() {
+      console.log("updating :3")
+      if(FileFromKey(activeFile) !== undefined) {
+      FileFromKey(activeFile).text = DISPLAY.innerText
+      }
+      StoreData = {FileContent: files, fileIdCount: fileIdCount, activeFile: activeFile, settings: settings}
+      StoreData = JSON.stringify(StoreData)
+      localStorage.setItem("StoreData", StoreData);
+    }
+    
+    setInterval(saveToLocalStorage, 10000)
+    
+    function removeStorage() {
+      if (window.confirm("are you sure you want to delete ALL storage, this will delete EVERTHING. this CANNOT be undone.")) {
+        localStorage.removeItem("StoreData")
+        window.location.reload()
+      }
+    }
+    
+    function disableAutocomplete() {
+      settings.AutoComplete = autocorrectCheckbox.checked
+      if (!autocorrectCheckbox.checked) {
+        DISPLAY.setAttribute("spellcheck", "false")
+        DISPLAY.setAttribute("autocorrect", "off")
+        DISPLAY.setAttribute("autocapitalize", "off")
+      } else {
+        DISPLAY.removeAttribute('spellcheck');
+        DISPLAY.removeAttribute('autocorrect');
+        DISPLAY.removeAttribute('autocapitalize');
+      }
+      
+      saveToLocalStorage()
+    }
+    
+    
+    function showReplaceTextModal() {
+      
+      //  replaceTextDialog
+      
+      replaceTextDialog.showModal()
+    }
+    
+    function closeReplaceTextModal() {
+      
+      replaceTextDialog.close()
+    }
+    
+    function setFontMultiNum() {
+      // fontmultiSlider  fontmultiNumber
+      const Val = parseFloat(fontmultiNumber.value)
+      if( isNaN(Val) ) {
+        return;
+      }
+      
+      fontmultiSlider.value = "" + Val
+      outputFontMulti(Val)
+      
+      saveToLocalStorage()
+    }
+    
+    function setFontMultiSlider() {
+      // fontmultiSlider  fontmultiNumber
+      const Val = parseFloat(fontmultiSlider.value)
+      if( isNaN(Val) ) {
+        return;
+      }
+      
+      fontmultiNumber.value = "" + Val
+      outputFontMulti(Val)
+      
+      saveToLocalStorage()
+    }
+    
+    function outputFontMulti(Val) {
+      
+      settings.FontMulti = Val
+      DISPLAY.style.fontSize = "" + Val + "rem"
+    }
+    
+    function TextEDitorHeight() {
+      console.log(window.getComputedStyle(DISPLAY).lineHeight)
+    }
+    
+    DISPLAY.addEventListener("keydown", (event) => {
+      if (event.key === "Tab") {
+        event.preventDefault() //by default browsers use tab for navigation, this will move the cursor away which we do not want.
+        let selection = window.getSelection()
+          
+        let elementContainingSelection = selection.anchorNode
+        if (DISPLAY.contains(elementContainingSelection)) { //we use contain because the element of the select could be a child of the DISPLAY in some cases
+          let range = selection.getRangeAt(0); //the zero mean we get the first range, you cant have multiple ranges tho
+          range.deleteContents(); //if there is text that is selected lets remove it as thats what keyboards do.
+          tabCharacterNode = document.createTextNode("\t"); //html was sections of text as textNodes
+          range.insertNode(tabCharacterNode); //add the tab character at the place of selection
+          range.collapse(false) //after the prevousi line we have just a single tab character selected, this removes the selection, the "false" makes the selection become after the charcter (well its not a selection, its jsut a text carat)
+        }
+      }
+    })
+    
+    function showProgramOpeningModal() {
+      openProgramDialog.showModal()
+    }
+    
+    function hideProgramOpeningModal() {
+      
+      openProgramDialog.close()
+    }
+    
+    //openTextInProgram('wolframAlpha')
+    const programOpeningList = {
+      overpassTurbo: {startUrl: "https://overpass-turbo.eu/index.html?Q=", endUrl: "", formatMode: "urlEncode"},
+      JSONLint: {startUrl: "https://jsonlint.com/?json=", endUrl: "", formatMode: "urlEncode"},
+      //https://www.wolframalpha.com/input?i=
+      wolframAlpha: {startUrl: "https://www.wolframalpha.com/input?i=", endUrl: "", formatMode: "urlEncode"},
+      cyberChef: {startUrl: "https://gchq.github.io/CyberChef/#input=", endUrl: "&ienc=65001", formatMode: "cyberChef"},
+    }
+    
+    function openTextInProgram(programKey) {
+      const format = programOpeningList[programKey].formatMode
+      let encodedText;
+      //console.log(format, DISPLAY.innerText)
+      if(format === "urlEncode") {
+        encodedText = encodeURIComponent(DISPLAY.innerText)
+      } else if(format === "cyberChef") {
+        encodedText = encodeURIComponent(Base64Plus.encode(DISPLAY.innerText).replaceAll("=", ""))
+      }
+      
+      const url = programOpeningList[programKey].startUrl + encodedText + programOpeningList[programKey].endUrl 
+      window.open(url, "_blank")
+    }
+   
+    async function regesterServiceWorker() {
+      let registeration;
+      const DoServiceWorker = true
+      if(DoServiceWorker && ("serviceWorker" in navigator)) {
+        alert("gayood x3")
+        try {
+          const serviceWorkerCodeFetch = await fetch("/JavaScript-projects/inputTypeFile/ServiceWorkerv2.js")
+          const serviceWorkerText = serviceWorkerCodeFetch.text()
+          const awesomeBlob = new Blob([serviceWorkerText], {type: "text/javascript"});
+          const url = URL.createObjectURL(awesomeBlob)
+          registeration = await navigator.serviceWorker.register(url, {scope: "/JavaScript-projects/inputTypeFile/"})
+          alert("registeration sucsesc: " + registeration)
+        } catch(cuteBuggieUwU) {
+          alert("error registering: " + cuteBuggieUwU + "trying again without blob")
+          try {
+            registeration = await navigator.serviceWorker.register("/JavaScript-projects/inputTypeFile/ServiceWorkerv2.js", {scope: "/JavaScript-projects/inputTypeFile/"})
+            alert("registeration sucsesc: " + registeration)
+          } catch(cuteBuggieUwU) {
+            alert("error registering: " + cuteBuggieUwU )
+          }
+        }
+      }
+    }
+    setTimeout(regesterServiceWorker, 1000)
+    
+  </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
