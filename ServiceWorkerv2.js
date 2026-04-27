@@ -9,7 +9,7 @@ const PopulateCache = async (fileList) => {
 const updateCache = async (eventReq) => {
 	const cache = await caches.open(cacheVersion)
 	try {
-		if(corsAllowedURLs.includes(eventReq.url) {
+		if(corsAllowedURLs.includes(eventReq.url)) {
 			const fetchResp = await fetch(eventReq)
 		} else {
 			const fetchResp = await fetch(eventReq, { mode: 'no-cors'})
@@ -49,7 +49,7 @@ self.addEventListener("fetch",  (event) => {
 		const cachedAsset = await caches.match(event.request)
 		if(cachedAsset === undefined) {
 			try {
-				if(corsAllowedURLs.includes(eventReq.url) {
+				if(corsAllowedURLs.includes(eventReq.url)) {
 					return await fetch(event.request)
 				} else {
 					return await fetch(event.request, { mode: 'no-cors'})
