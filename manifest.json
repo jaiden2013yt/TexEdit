@@ -1,0 +1,21 @@
+{
+  "name": "Texedit",
+  "short_name": "Texedit",
+  "scope": "/JavaScript-projects/inputTypeFile/",
+  "icons": [
+    {
+      "src": "https://jaiden2013.neocities.org/JavaScript-projects/inputTypeFile/icon512px.jpg",
+      "type": "image/jpeg",
+      "sizes": "512x512"
+    },
+    {
+      "src": "https://jaiden2013.neocities.org/JavaScript-projects/inputTypeFile/icon192px.jpg",
+      "type": "image/jpeg",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "https://jaiden2013.neocities.org/JavaScript-projects/inputTypeFile/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#000000"
+}
