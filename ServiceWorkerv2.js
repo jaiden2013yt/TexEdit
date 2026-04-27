@@ -5,16 +5,16 @@ const PopulateCache = async (fileList) => {
 	await cache.addAll(fileList)
 }
 
-const updateCache = async (eventResp) => {
+const updateCache = async (eventReq) => {
 	const cache = await caches.open(cacheVersion)
 	try {
-		const fetchResp = await fetch(eventResp)
+		const fetchResp = await fetch(eventReq)
 		if(fetchResp && fetchResp.ok) { //check if response is good
-		await cache.put(eventResp, fetchResp.clone())
+		await cache.put(eventReq, fetchResp.clone())
 		return fetchResp.clone();
 		}
 	} catch(eggies) {
-		console.log("a error occorder while saving a file into cache (updateCache function): ", eventResp.url, " | ", eggies)
+		console.log("a error occorder while saving a file into cache (updateCache function): ", eventReq.url, " | ", eggies)
 	}
 }
 
