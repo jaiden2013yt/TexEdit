@@ -886,8 +886,8 @@
     }
    
     async function regesterServiceWorker() {
-      let registeration;
       const DoServiceWorker = true
+			
 	  	if(!DoServiceWorker) {
 	  		return;
 	  	}
@@ -897,8 +897,8 @@
 	  	}
 		  
       try {
-        registeration = await navigator.serviceWorker.register("ServiceWorkerv2.js", {scope: "./"})
-        alert("registeration sucsesc: " + JSON.stringify(registeration))
+        const registeration = await navigator.serviceWorker.register("ServiceWorkerv2.js", {scope: "./"})
+        //alert("registeration sucsesc: " + JSON.stringify(registeration))
       } catch(cuteBuggieUwU) {
         alert("error registering: " + cuteBuggieUwU )
       }
