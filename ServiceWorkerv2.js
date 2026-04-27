@@ -1,4 +1,5 @@
 const cacheVersion = "v0d1"
+const corsAllowedURLs = []
 
 const PopulateCache = async (fileList) => {
   const cache = await caches.open(cacheVersion)
@@ -8,7 +9,11 @@ const PopulateCache = async (fileList) => {
 const updateCache = async (eventReq) => {
 	const cache = await caches.open(cacheVersion)
 	try {
-		const fetchResp = await fetch(eventReq, { mode: 'no-cors'})
+		if(corsAllowedURLs.includes(eventReq.url) {
+			const fetchResp = await fetch(eventReq)
+		} else {
+			const fetchResp = await fetch(eventReq, { mode: 'no-cors'})
+		}
 		if(fetchResp && (fetchResp.ok || fetchResp.type === "opaque")) { //check if response is good
 			await cache.put(eventReq, fetchResp.clone())
 			return fetchResp.clone();
@@ -44,7 +49,11 @@ self.addEventListener("fetch",  (event) => {
 		const cachedAsset = await caches.match(event.request)
 		if(cachedAsset === undefined) {
 			try {
-				return await fetch(event.request, { mode: 'no-cors'})
+				if(corsAllowedURLs.includes(eventReq.url) {
+					return await fetch(event.request)
+				} else {
+					return await fetch(event.request, { mode: 'no-cors'})
+				}
 			} catch(buniiesUwU) {
 				console.log("failed to fetch asset: ", buniiesUwU)
 			}
