@@ -481,7 +481,7 @@
     
     async function saveTextToFiles() {
       //const Text = DISPLAY.innerText
-      const TheTextFile = new File([DISPLAY.innerText], "myFile.txt", {
+      const TheTextFile = new File([DISPLAY.innerText], filenameInput.value + ".txt", {
         type: "text/plain",
       });
 
