@@ -1,4 +1,7 @@
-	/* jet brains mono */
+@import url('https://fontsapi.zeoseven.com/572/main/result.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap'); /* uwu */
+
+/* jet brains mono */
 @font-face {
   font-family: 'JetBrains Mono';
   font-style: normal;
@@ -16,8 +19,7 @@
     src: local('Minecraft'), url('https://fonts.cdnfonts.com/s/25041/1_MinecraftRegular1.woff') format('woff');
 	}
 
-  @import url('https://fontsapi.zeoseven.com/572/main/result.css');
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap'); /* uwu */
+
 	@font-face {
 		font-family: "OpenMoji";
 		src: url("https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji/font/OpenMoji-color-glyf_colr_0/OpenMoji-color-glyf_colr_0.woff2") format("woff2");
