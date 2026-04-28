@@ -249,7 +249,7 @@
   <input id="fontmultiNumber" type="number" value="1.00" style="width: 6ch;" oninput="setFontMultiNum(); saveToLocalStorage()" tabindex="-1">
 
 	<span>file saving method</span>
-	<select onchange="setFontSavingMethod() saveToLocalStorage()" id="fontSavingMethodSelect" tabindex="-1">
+	<select onchange="setFontSavingMethod(); saveToLocalStorage()" id="fontSavingMethodSelect" tabindex="-1">
 		<option value="aTag">download type &lt;a&gt; tag</option>
 		<option value="shareSheet">share sheet</option>
 	</select>
