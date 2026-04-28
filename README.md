@@ -1,6 +1,6 @@
 # TexEdit 
 texEdit is a text editor ive been making :3  
-\n if you find any bugs or have anying you would want to see in this *please* make a `issue` about that x3
+if you find any bugs or have anying you would want to see in this *please* make a `issue` about that x3
 # things i want to add
 - indexedDB support
 - ~~a use share sheet setting~~ added owo ;3
