@@ -479,12 +479,25 @@
     
     
     
-    function saveTextToFiles() {
+    async function saveTextToFiles() {
       //const Text = DISPLAY.innerText
       const TheTextFile = new File([DISPLAY.innerText], "myFile.txt", {
         type: "text/plain",
       });
-      
+
+	  	if (settings.useShareSheet) {
+				//TheTextFile
+				try {
+	      	await navigator.share({
+	        	TheTextFile,
+		        title: "text",
+		        text: "your text",
+	      	});
+					
+	    	} catch (issuePaper) {
+	      	console.log(issuePaper)
+    		}
+			} else {
       const MyAwesomeUrLblob = URL.createObjectURL(TheTextFile)
       
       
@@ -497,6 +510,7 @@
       gAy.click();
   
       document.body.removeChild(gAy);
+			}
     }
     
     
