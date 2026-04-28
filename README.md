@@ -5,5 +5,6 @@ texEdit is a text editor ive been making :3
 - indexedDB support
 - ~~a use share sheet setting~~ added owo ;3
 - proper tab selection support
-- color themes (and css (╥‸╥) ) 
+- color themes (and css (╥‸╥) )
+- iframe to display stuff if you are coding html
 - i will add more later
