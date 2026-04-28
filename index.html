@@ -247,7 +247,12 @@
   <span>font multi: </span>
   <input id="fontmultiSlider" type="range" min="0.02" max="10" value="1" step="0.01" oninput="setFontMultiSlider(); saveToLocalStorage()">
   <input id="fontmultiNumber" type="number" value="1.00" style="width: 6ch;" oninput="setFontMultiNum(); saveToLocalStorage()" tabindex="-1">
-  
+
+	<span>file saving method</span>
+	<select id="fontSavingMethodSelect">
+		<option >download type &lt;a&gt; tag</option>
+		<option>share sheet</option>
+	</select>
   <!--
   <span>text editor height</span>
   <button onclick="TextEDitorHeight()">TEMP</button> -->
