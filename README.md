@@ -7,4 +7,5 @@ texEdit is a text editor ive been making :3
 - proper tab selection support
 - color themes (and css (╥‸╥) )
 - iframe to display stuff if you are coding html
+- pwa install button using beforeinstallprompt?
 - i will add more later
