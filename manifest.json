@@ -14,7 +14,7 @@
       "sizes": "192x192"
     }
   ],
-  "start_url": "https://jaiden2013.neocities.org/JavaScript-projects/inputTypeFile/",
+  "start_url": "./",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#000000"
