@@ -501,7 +501,7 @@
 	      
 	      const gAy = document.createElement("a");
 	      gAy.href = MyAwesomeUrLblob;
-	      gAy.download = document.getElementById("file" + activeFile).innerText; 
+	      gAy.download = filenameInput.value + ".txt"; 
 	      gAy.style.display = "none";
 	  
 	      document.body.appendChild(gAy);
