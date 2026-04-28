@@ -400,6 +400,7 @@
     
     tabSwidtHselection.addEventListener("input", (event) => { 
       SetTabWidth()
+			saveToLocalStorage()
     })
     
     function SetTabWidth() {
@@ -418,7 +419,7 @@
       try {
         await navigator.clipboard.writeText(DISPLAY.innerText)
         alert("copied :3 (i hope)")
-      } catch(bugs) {
+      } catch(bugs) { 
         alert("copying failed :(")
         console.log("copy failed: " + bugs)
       }
@@ -587,7 +588,7 @@
         DISPLAY.classList.remove("wrapEnabled")
       }
       
-      saveToLocalStorage()
+     
     }
   
     const fontStacks = {
@@ -622,7 +623,7 @@
 
       FileFromKey(activeFile).settings.font = {mainFont: fontSelectionSelect.value, secondFont: fontOverlaySelectionSelect.value}
       
-      saveToLocalStorage()
+    
     }
   
   
@@ -677,7 +678,7 @@
     if (urlParams.has("addtext")) {
       createNewFile()
       DISPLAY.innerText = urlParams.get("addtext")
-      saveToLocalStorage()
+     saveToLocalStorage()
     }
     function FileFromKey(key) {
       return files.find(item => item.key === key);
@@ -717,7 +718,7 @@
       
       document.getElementById("file" + fileID).classList.add("selectedFileButton")
       
-      saveToLocalStorage()
+     	saveToLocalStorage()
     }
     
     function removeActiveFile() {
@@ -744,7 +745,7 @@
       document.getElementById("file" + activeFile).innerText = filenameInput.value
       FileFromKey(activeFile).fileName = filenameInput.value
       
-      saveToLocalStorage()
+     
     }
     
     function saveToLocalStorage() {
@@ -757,7 +758,7 @@
       localStorage.setItem("StoreData", StoreData);
     }
     
-    setInterval(saveToLocalStorage, 10000)
+    setInterval(saveToLocalStorage, 10*1000) //saveToLocalStorage timer saveToLocalStorage timer saveToLocalStorage timer saveToLocalStorage timer
     
     function removeStorage() {
       if (window.confirm("are you sure you want to delete ALL storage, this will delete EVERTHING. this CANNOT be undone.")) {
@@ -778,7 +779,7 @@
         DISPLAY.removeAttribute('autocapitalize');
       }
       
-      saveToLocalStorage()
+     
     }
     
     
@@ -804,7 +805,7 @@
       fontmultiSlider.value = "" + Val
       outputFontMulti(Val)
       
-      saveToLocalStorage()
+     
     }
     
     function setFontMultiSlider() {
@@ -817,7 +818,7 @@
       fontmultiNumber.value = "" + Val
       outputFontMulti(Val)
       
-      saveToLocalStorage()
+     
     }
     
     function outputFontMulti(Val) {
