@@ -159,31 +159,31 @@
   
    <button onclick="inpuT.click()" class="gayButton">open file (also this is the gay button)</button>
    <input id="inpuT" type="file" style="display: none;" onchange="displayFileText()">
-   <button onclick="displayFileText() saveToLocalStorage()">reopen</button>
+   <button onclick="displayFileText(); saveToLocalStorage()">reopen</button>
    
   <br>
   <span id="fileList"></span>
-  <button onclick="createNewFile() saveToLocalStorage()">+</button>
+  <button onclick="createNewFile(); saveToLocalStorage()">+</button>
   <br>
-  <button onclick="removeActiveFile() saveToLocalStorage()">remove active file</button>
+  <button onclick="removeActiveFile(); saveToLocalStorage()">remove active file</button>
   <input id="filenameInput" type="text" placeholder="filename" oninput="renameFile() saveToLocalStorage()" value="new file" tabindex="-1"> 
   
   <p id="DISPLAY" class="DisplayCSS wrapEnabled" contenteditable="plaintext-only" style="tab-size: 4;"></p>
  
  
-  <button onclick="copyCodeYAY() saveToLocalStorage()">copy</button>
-  <button onclick="saveTextToFiles() saveToLocalStorage()">save file (on the pwa on ios use copy instead)</button>
-  <button onclick="removeStorage() saveToLocalStorage()">remove storage</button>
+  <button onclick="copyCodeYAY(); saveToLocalStorage()">copy</button>
+  <button onclick="saveTextToFiles(); saveToLocalStorage()">save file (on the pwa on ios use copy instead)</button>
+  <button onclick="removeStorage(); saveToLocalStorage()">remove storage</button>
   
   <br>
   
-  <button onclick="JSONifyText(false) saveToLocalStorage()">beautify json :3</button>
-  <button onclick="JSONifyText(true) saveToLocalStorage()">minify json :3</button>
+  <button onclick="JSONifyText(false); saveToLocalStorage()">beautify json :3</button>
+  <button onclick="JSONifyText(true); saveToLocalStorage()">minify json :3</button>
   
 
   
   
-  <button onclick="showReplaceTextModal() saveToLocalStorage()">Replace Text</button>
+  <button onclick="showReplaceTextModal(); saveToLocalStorage()">Replace Text</button>
   
   <dialog id="replaceTextDialog">
     <div  id="replaceTextDialogChild">
@@ -201,7 +201,7 @@
       </div>
     
       <div id="replateTextEndButtons">
-        <button onclick="replaceText() saveToLocalStorage()">replace!</button>
+        <button onclick="replaceText(); saveToLocalStorage()">replace!</button>
         <button onclick="closeReplaceTextModal()">close</button>
       </div>
       
@@ -221,7 +221,7 @@
   
   <br>
   <span>font: </span>
-  <select onchange="setFont() saveToLocalStorage()" id="fontSelectionSelect" tabindex="-1">
+  <select onchange="setFont(); saveToLocalStorage()" id="fontSelectionSelect" tabindex="-1">
     <option value="scifi">SciFi (Quantico)</option>
     <option value="mono">monospaced (jet brains)</option>
     <option value="sansSerif">sans-serif</option>
@@ -230,23 +230,23 @@
     <option value="Tangerine">fancy (Tangerine)</option>
   </select>
   <span>overlay font: </span>
-  <select onchange="setFont() saveToLocalStorage()" id="fontOverlaySelectionSelect" tabindex="-1">
+  <select onchange="setFont(); saveToLocalStorage()" id="fontOverlaySelectionSelect" tabindex="-1">
     <option value="none">- none -</option>
     <option value="notoColor">Color Emoji - Noto</option>
     <option value="OpenMoji">Color Emoji - OpenMoji</option> 
   </select>
-  <span>autocorrect: </span><input onchange="disableAutocomplete() saveToLocalStorage()" id="autocorrectCheckbox" type="checkbox" checked>
+  <span>autocorrect: </span><input onchange="disableAutocomplete(); saveToLocalStorage()" id="autocorrectCheckbox" type="checkbox" checked>
   
   <span>word wrap: </span>
-  <input onchange="toggleWorpWrap() saveToLocalStorage()" id="wordWrapInput" type="checkbox" checked>
+  <input onchange="toggleWorpWrap(); saveToLocalStorage()" id="wordWrapInput" type="checkbox" checked>
   
   <span>tab width: </span>
   <input id="tabSwidtHselection" type="range" min="0" max="10" value="4">
   <span id="tabWidthIndecator" style="display: inline-block; width: 2ch;">3</span>
   
   <span>font multi: </span>
-  <input id="fontmultiSlider" type="range" min="0.02" max="10" value="1" step="0.01" oninput="setFontMultiSlider() saveToLocalStorage()">
-  <input id="fontmultiNumber" type="number" value="1.00" style="width: 6ch;" oninput="setFontMultiNum() saveToLocalStorage()" tabindex="-1">
+  <input id="fontmultiSlider" type="range" min="0.02" max="10" value="1" step="0.01" oninput="setFontMultiSlider(); saveToLocalStorage()">
+  <input id="fontmultiNumber" type="number" value="1.00" style="width: 6ch;" oninput="setFontMultiNum(); saveToLocalStorage()" tabindex="-1">
   
   <!--
   <span>text editor height</span>
