@@ -249,9 +249,9 @@
   <input id="fontmultiNumber" type="number" value="1.00" style="width: 6ch;" oninput="setFontMultiNum(); saveToLocalStorage()" tabindex="-1">
 
 	<span>file saving method</span>
-	<select id="fontSavingMethodSelect">
-		<option >download type &lt;a&gt; tag</option>
-		<option>share sheet</option>
+	<select onchange="setFontSavingMethod() saveToLocalStorage()" id="fontSavingMethodSelect" tabindex="-1">
+		<option value="aTag">download type &lt;a&gt; tag</option>
+		<option value="shareSheet">share sheet</option>
 	</select>
   <!--
   <span>text editor height</span>
@@ -290,7 +290,7 @@
     const replaceTextIsCaps = document.getElementById("replaceTextIsCaps")
     const fontOverlaySelectionSelect = document.getElementById("fontOverlaySelectionSelect")
     const openProgramDialog = document.getElementById("openProgramDialog")
-    
+    const fontSavingMethodSelect = document.getElementById("fontSavingMethodSelect")
     async function displayFileText() {
       
       const UwUfile = await document.getElementById("inpuT").files[0]
@@ -605,7 +605,7 @@
       Tangerine: {st: "'Tangerine', cursive, sans-serif", wg: "700"}
     }
     const fontBonuses = {
-      none: "",
+      none: ""
       notoColor: "'Noto Color Emoji',",
       OpenMoji: "'OpenMoji',",
     }
@@ -665,17 +665,19 @@
       fontmultiSlider.value = settings.FontMulti
       fontSelectionSelect.value = FileFromKey(activeFile).settings.font.mainFont
       fontOverlaySelectionSelect.value = FileFromKey(activeFile).settings.font.secondFont
-      
+			fontSavingMethodSelect.value = settings.useShareSheet ? "shareSheet" : "aTag"
+			
       toggleWorpWrap()
       disableAutocomplete()
       SetTabWidth()
       setFontMultiSlider()
       setFont()
+			setFontSavingMethod()
     } else {
   
     fileIdCount = 1;
     activeFile = 1;
-    settings = {wordWrap: true, AutoComplete: true, tabWidth: 3, FontMulti: 1};
+    settings = {wordWrap: true, AutoComplete: true, tabWidth: 3, FontMulti: 1, useShareSheet: false};
     files = [{key: 1,  text: "", fileName: "new file", settings: {wordWrap: true, font: {mainFont: "scifi", secondFont: "none"}}}]
     fileList.innerHTML = "<button id='file1' onclick='openFile(1)' class='selectedFileButton'>new file</button>"
     }
@@ -903,7 +905,12 @@
       }
 		}
     setTimeout(regesterServiceWorker, 1000)
-    
+
+	
+	function setFontSavingMethod() {
+		//fontSavingMethodSelect aTag shareSheet settings.useShareSheet
+		settings.useShareSheet = (fontSavingMethodSelect.value === "shareSheet")
+	}
   </script>
   </body>
 </html>
