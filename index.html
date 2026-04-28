@@ -268,7 +268,8 @@
   
   <p>i hate cache :( neocities pleaee work</p>
   <br><br><br><br>
-  
+
+	<button onclick="installPwa() saveToLocalStorage()">install as pwa!!!</button>
   <p><a href="https://duckduckgo.com/?q=how+to+install+progressive+web+apps+on+%5Bbrowser+%2B+version+and+os+%2B+version%5D">INSTALL THIS AS A PWA ON WHATEVER DEVICES YOU OWN THAT SUPORT IT, CLICK THIS FOR INFORATION ON HOW TO INSTALL THEM, YOU WILL WANT TO WE ON THIS WEBPAGE WHILE YOU PROFORM THE CLICKS TO INSTALL INSTALL THIS PWA NOW!!! INSTALL THIS PWA NOW!!! INSTALL THIS PWA NOW!!! INSTALL THIS PWA NOW!!! INSTALL THIS PWA NOW!!! INSTALL THIS PWA NOW!!! INSTALL THIS PWA NOW!!! INSTALL THIS PWA NOW!!!</a></p>
   <script>
     
@@ -922,6 +923,20 @@
 	function setFontSavingMethod() {
 		//fontSavingMethodSelect aTag shareSheet settings.useShareSheet
 		settings.useShareSheet = (fontSavingMethodSelect.value === "shareSheet")
+	}
+
+	let installPrompt;
+
+	window.addEventListener("beforeinstallprompt", (event) => {
+		installPrompt = event
+	}
+													
+	function installPwa() {
+		if(!installPrompt) {
+			console.log('before install event not supported \nor it hasnt happened yet \nor the pwa failed to be "vaild"')
+			return
+		}
+		installPrompt.prompt()
 	}
   </script>
   </body>
