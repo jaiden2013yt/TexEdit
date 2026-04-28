@@ -1,5 +1,11 @@
 const cacheVersion = "v0d1"
-const corsAllowedURLs = []
+const corsAllowedURLs = [
+	"https://fonts.gstatic.com/s/quantico/v19/rax-HiSdp9cPL3KIF7xrJD0.woff2",
+	"https://fonts.cdnfonts.com/s/25041/1_MinecraftRegular1.woff",
+	"https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbX2o-flEEny0FZhsfKu5WU4xD-Cw6nSGjW7BDEAQ.woff2",
+	"https://fonts.gstatic.com/s/nunito/v32/XRXI3I6Li01BKofiOc5wtlZ2di8HDFwmdTQ3jw.woff2",
+	"https://fonts.gstatic.com/s/tangerine/v18/Iurd6Y5j_oScZZow4VO5srNZi5FN.woff2",
+]
 
 const PopulateCache = async (fileList) => {
   const cache = await caches.open(cacheVersion)
