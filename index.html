@@ -489,7 +489,7 @@
 				//TheTextFile
 				try {
 	      	await navigator.share({
-	        	TheTextFile,
+	        	files: TheTextFile,
 		        title: "text",
 		        text: "your text",
 	      	});
@@ -498,18 +498,18 @@
 	      	console.log(issuePaper)
     		}
 			} else {
-      const MyAwesomeUrLblob = URL.createObjectURL(TheTextFile)
-      
-      
-      const gAy = document.createElement("a");
-      gAy.href = MyAwesomeUrLblob;
-      gAy.download = document.getElementById("file" + activeFile).innerText; 
-      gAy.style.display = "none";
-  
-      document.body.appendChild(gAy);
-      gAy.click();
-  
-      document.body.removeChild(gAy);
+	      const MyAwesomeUrLblob = URL.createObjectURL(TheTextFile)
+	      
+	      
+	      const gAy = document.createElement("a");
+	      gAy.href = MyAwesomeUrLblob;
+	      gAy.download = document.getElementById("file" + activeFile).innerText; 
+	      gAy.style.display = "none";
+	  
+	      document.body.appendChild(gAy);
+	      gAy.click();
+	  
+	      document.body.removeChild(gAy);
 			}
     }
     
