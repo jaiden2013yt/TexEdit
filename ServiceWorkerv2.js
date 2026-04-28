@@ -17,7 +17,7 @@ const updateCache = async (eventReq) => {
 	const cache = await caches.open(cacheVersion)
 	try {
 		let fetchResp;
-		console.log(eventReq)
+		//console.log(eventReq)
 		if(corsAllowedURLs.includes(eventReq.url) || eventReq.destination === "font" ) {
 			fetchResp = await fetch(eventReq)
 		} else {
