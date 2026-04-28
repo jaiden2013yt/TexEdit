@@ -15,10 +15,11 @@ const PopulateCache = async (fileList) => {
 const updateCache = async (eventReq) => {
 	const cache = await caches.open(cacheVersion)
 	try {
+		let fetchResp;
 		if(corsAllowedURLs.includes(eventReq.url)) {
-			const fetchResp = await fetch(eventReq)
+			fetchResp = await fetch(eventReq)
 		} else {
-			const fetchResp = await fetch(eventReq, { mode: 'no-cors'})
+			fetchResp = await fetch(eventReq, { mode: 'no-cors'})
 		}
 		if(fetchResp && (fetchResp.ok || fetchResp.type === "opaque")) { //check if response is good
 			await cache.put(eventReq, fetchResp.clone())
