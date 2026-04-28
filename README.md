@@ -8,4 +8,5 @@ if you find any bugs or have anying you would want to see in this *please* make 
 - color themes (and css (╥‸╥) )
 - iframe to display stuff if you are coding html
 - pwa install button using beforeinstallprompt?
+- a save all button to save a zip/folder containing all documents
 - i will add more later
