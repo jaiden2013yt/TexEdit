@@ -57,7 +57,7 @@ self.addEventListener("fetch",  (event) => {
 		const cachedAsset = await caches.match(event.request)
 		if(cachedAsset === undefined) {
 			try {
-				if(corsAllowedURLs.includes(event.request.url)) {
+				if(corsAllowedURLs.includes(event.request.url) || event.request.destination === "font") {
 					return await fetch(event.request)
 				} else {
 					return await fetch(event.request, { mode: 'no-cors'})
