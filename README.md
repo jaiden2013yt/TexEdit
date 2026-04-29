@@ -8,6 +8,6 @@ if you find any bugs or have anying you would want to see in this *please* make 
 - color themes (and css (╥‸╥) )
 - iframe to display stuff if you are coding html
 - ~~pwa install button using beforeinstallprompt?~~ doniee :3 
-- a save all button to save a zip/folder containing all documents
+- a save all button to save a zip/folder containing all documents - i added the export save, but that isnt really this so its still unstriked
 - height selection for the editor element(DISPLAY)
 - i will add more later
