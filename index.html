@@ -1029,6 +1029,9 @@
 		}
 	}
 
+
+	DISPLAY.addEventListener("input", codeDisplayReloadEv)
+	
 	function codeDisplayReloadBTN() {
 
 		if(HTMLdisplayIframe == null) return;
@@ -1043,7 +1046,18 @@
 		}
 	}
 
+	function codeDisplayReloadEv() {
+		if (!(HTMLdisplayIframe == null || !codeDisplayAutoReload.checked)) return;
 
+		if(HTMLdisplayIframe.contentDocument !== null) { //if HTMLdisplayIframe.contentDocument isnt nullish(null or undefied)
+			
+			HTMLdisplayIframe.contentDocument.open();
+			HTMLdisplayIframe.contentDocument.write(DISPLAY.innerText);
+			HTMLdisplayIframe.contentDocument.close();
+		} else {
+			console.log("failed to reload") //$w$ :33 (capatalizme)
+		}
+	}
 		
   </script>
   </body>
