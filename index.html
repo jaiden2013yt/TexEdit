@@ -994,12 +994,17 @@
 			HTMLdisplayIframe.width = HTMLDisplayWidth.value
 			HTMLdisplayIframe.height = HTMLDisplayHeight.value
 
-			//add the src value
-			const htmlDoc = new File([DISPLAY.innerText], filenameInput.value + ".html", {
-      	type: "text/html",
-      });
+			
 
-			HTMLdisplayIframe.src = URL.createObjectURL(htmlDoc)
+			HTMLdisplayIframe.src = "about:blank" //about:blank is same origin
+
+			//set the page to contents to be that of DISPLAY.innerText
+			if(HTMLdisplayIframe.contentDocument !== null) { //if HTMLdisplayIframe.contentDocument isnt nullish(null or undefied)
+				HTMLdisplayIframe.contentDocument.open();
+	  		HTMLdisplayIframe.contentDocument.write(DISPLAY.innerText);
+	  		HTMLdisplayIframe.contentDocument.close();
+			}
+			
 			
 			codeDisplayBox.appendChild(HTMLdisplayIframe)
 		} else {
