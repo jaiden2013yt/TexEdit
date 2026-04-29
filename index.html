@@ -264,15 +264,15 @@
 			<span>iframe preview (WORK IN PROGRESS)</span>
 			
 			<span>enable preview</span>
-			<input id="codeDisplayEnable" onclick="enableCodeDisplay()" type="checkbox">
+			<input id="codeDisplayEnable" onchange="enableCodeDisplay()" type="checkbox">
 			
 			<span>width(px): </span>
-			<input id="HTMLDisplayWidth" onInput="HTMLDisplaySetWidth()" type="number" value="700">
+			<input id="HTMLDisplayWidth" oninput="HTMLDisplaySetWidth()" type="number" value="700">
 
 			<span>height(px): </span>
-			<input id="HTMLDisplayHeight" onInput="HTMLDisplaySetHeight()" type="number" value="300">
+			<input id="HTMLDisplayHeight" oninput="HTMLDisplaySetHeight()" type="number" value="300">
 
-			<button>reload</button>
+			<button onclick="codeDisplayReloadBTN("BTN")">reload</button>
 
 			<span>auto reload: </span>
 			<input id="codeDisplayAutoReload" type="checkbox" checked>
@@ -1029,17 +1029,20 @@
 		}
 	}
 
-		function codeDisplayReloadBTN() {
+	function codeDisplayReloadBTN() {
+		
+		if(HTMLdisplayIframe.contentDocument !== null) { //if HTMLdisplayIframe.contentDocument isnt nullish(null or undefied)
 			
-			if(HTMLdisplayIframe.contentDocument !== null) { //if HTMLdisplayIframe.contentDocument isnt nullish(null or undefied)
-				
-				HTMLdisplayIframe.contentDocument.open();
-	  		HTMLdisplayIframe.contentDocument.write(DISPLAY.innerText);
-	  		HTMLdisplayIframe.contentDocument.close();
-			} else {
-				alert("failed to reload") //gay :33
-			}
+			HTMLdisplayIframe.contentDocument.open();
+			HTMLdisplayIframe.contentDocument.write(DISPLAY.innerText);
+			HTMLdisplayIframe.contentDocument.close();
+		} else {
+			alert("failed to reload") //gay :33
 		}
+	}
+
+
+		
   </script>
   </body>
 </html>
