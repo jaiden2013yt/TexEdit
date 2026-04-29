@@ -320,7 +320,8 @@
 		const codeDisplayAutoReload = document.getElementById("codeDisplayAutoReload")
 		const HTMLDisplayHeight = document.getElementById("HTMLDisplayHeight")
 		const HTMLDisplayWidth = document.getElementById("HTMLDisplayWidth")
-			
+		const codeDisplayEnable = document.getElementById("codeDisplayEnable")
+		
     async function displayFileText() {
       
       const UwUfile = await document.getElementById("inpuT").files[0]
@@ -980,6 +981,23 @@
 		renameFile()
 		
 		saveTextToFiles() //prompt the user to download the file
+	}
+
+
+
+	//codeDisplayBox codeDisplayAutoReload HTMLDisplayHeight HTMLDisplayWidth codeDisplayEnable
+	let HTMLdisplayIframe;
+	function enableCodeDisplay() {
+		if(codeDisplayEnable.checked) {
+			codeDisplayBox.innerHTML = ""
+			HTMLdisplayIframe = document.createElement("iframe")
+			elm.width = HTMLDisplayWidth.value
+			elm.height = HTMLDisplayHeight.value
+			codeDisplayBox.appendChild(elm)
+		} else {
+			HTMLdisplayIframe = undefined
+			codeDisplayBox.innerHTML = ""
+		}
 	}
   </script>
   </body>
