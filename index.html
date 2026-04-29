@@ -166,7 +166,7 @@
   <button onclick="createNewFile(); saveToLocalStorage()">+</button>
   <br>
   <button onclick="removeActiveFile(); saveToLocalStorage()">remove active file</button>
-  <input id="filenameInput" type="text" placeholder="filename" oninput="renameFile() saveToLocalStorage()" value="new file" tabindex="-1"> 
+  <input id="filenameInput" type="text" placeholder="filename" oninput="renameFile(); saveToLocalStorage()" value="new file" tabindex="-1"> 
   
   <p id="DISPLAY" class="DisplayCSS wrapEnabled" contenteditable="plaintext-only" style="tab-size: 4;"></p>
  
