@@ -174,7 +174,8 @@
   <button onclick="copyCodeYAY(); saveToLocalStorage()">copy</button>
   <button onclick="saveTextToFiles(); saveToLocalStorage()">save file (on the pwa on ios use copy instead)</button>
   <button onclick="removeStorage(); saveToLocalStorage()">remove storage</button>
-  
+  <button onclick="exportSave()">export save</button>
+	  
   <br>
   
   <button onclick="JSONifyText(false); saveToLocalStorage()">beautify json :3</button>
@@ -657,7 +658,7 @@
     }
     
     if (localStorage.getItem("StoreData") !== null) {
-      dataFromStorage = JSON.parse(localStorage.getItem("StoreData"))
+      const dataFromStorage = JSON.parse(localStorage.getItem("StoreData"))
       
       fileIdCount = dataFromStorage.fileIdCount
       activeFile = dataFromStorage.activeFile
@@ -937,6 +938,15 @@
 			return
 		}
 		installPrompt.prompt()
+	}
+
+	function exportSave() {
+		saveToLocalStorage() //make sure the save it up-to-date
+		let theText = localStorage.getItem("StoreData") 
+
+		createNewFile() //get a new file
+		DISPLAY.innerText = theText //set text
+		saveTextToFiles() //prompt the user to download the file
 	}
   </script>
   </body>
