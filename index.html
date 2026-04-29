@@ -1030,7 +1030,9 @@
 	}
 
 	function codeDisplayReloadBTN() {
-		
+
+		if(HTMLdisplayIframe == null) return;
+
 		if(HTMLdisplayIframe.contentDocument !== null) { //if HTMLdisplayIframe.contentDocument isnt nullish(null or undefied)
 			
 			HTMLdisplayIframe.contentDocument.open();
