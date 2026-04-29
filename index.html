@@ -1028,6 +1028,18 @@
 			HTMLdisplayIframe.width = HTMLDisplayWidth.value
 		}
 	}
+
+		function codeDisplayReloadBTN() {
+			
+			if(HTMLdisplayIframe.contentDocument !== null) { //if HTMLdisplayIframe.contentDocument isnt nullish(null or undefied)
+				
+				HTMLdisplayIframe.contentDocument.open();
+	  		HTMLdisplayIframe.contentDocument.write(DISPLAY.innerText);
+	  		HTMLdisplayIframe.contentDocument.close();
+			} else {
+				alert("failed to reload") //gay :33
+			}
+		}
   </script>
   </body>
 </html>
