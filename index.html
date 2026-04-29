@@ -267,10 +267,10 @@
 			<input id="codeDisplayEnable" onclick="enableCodeDisplay()" type="checkbox">
 			
 			<span>width(px): </span>
-			<input id="HTMLDisplayWidth" type="number" value="700">
+			<input id="HTMLDisplayWidth" onInput="HTMLDisplaySetWidth()" type="number" value="700">
 
 			<span>height(px): </span>
-			<input id="HTMLDisplayHeight" type="number" value="300">
+			<input id="HTMLDisplayHeight" onInput="HTMLDisplaySetHeight()" type="number" value="300">
 
 			<button>reload</button>
 
@@ -1005,6 +1005,18 @@
 		} else {
 			HTMLdisplayIframe = undefined
 			codeDisplayBox.innerHTML = ""
+		}
+	}
+
+	function HTMLDisplaySetHeight() {
+		if (HTMLdisplayIframe) {
+			HTMLdisplayIframe.height = HTMLDisplayHeight.value
+		}
+	}
+
+	function HTMLDisplaySetWidth() {
+		if (HTMLdisplayIframe) {
+			HTMLdisplayIframe.width = HTMLDisplayWidth.value
 		}
 	}
   </script>
