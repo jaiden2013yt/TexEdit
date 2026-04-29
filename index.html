@@ -993,6 +993,14 @@
 			HTMLdisplayIframe = document.createElement("iframe")
 			elm.width = HTMLDisplayWidth.value
 			elm.height = HTMLDisplayHeight.value
+
+			//add the src value
+			const htmlDoc = new File([DISPLAY.innerText], filenameInput.value + ".html", {
+      	type: "text/html",
+      });
+
+			elm.src = URL.createObjectURL(htmlDoc)
+			
 			codeDisplayBox.appendChild(elm)
 		} else {
 			HTMLdisplayIframe = undefined
