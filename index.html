@@ -1005,6 +1005,10 @@
 					HTMLdisplayIframe.contentDocument.open();
 	  			HTMLdisplayIframe.contentDocument.write(DISPLAY.innerText);
 	  			HTMLdisplayIframe.contentDocument.close();
+
+					if (codeDisplayAutoReload.checked) {
+						DISPLAY.addEventListener("input", codeDisplayReloadEv)
+					}
 				} else {
 					alert("failed to load") //uwu :3
 				}
@@ -1014,6 +1018,7 @@
 		} else {
 			HTMLdisplayIframe = undefined
 			codeDisplayBox.innerHTML = ""
+			DISPLAY.removeEventListener("input", codeDisplayReloadEv)
 		}
 	}
 
@@ -1030,7 +1035,7 @@
 	}
 
 
-	DISPLAY.addEventListener("input", codeDisplayReloadEv)
+	
 	
 	function codeDisplayReloadBTN() {
 
@@ -1046,6 +1051,16 @@
 		}
 	}
 
+	function setCodeDisplayAutoReload() {
+		if (codeDisplayAutoReload.checked) {
+			if (HTMLdisplayIframe !== null) 
+				DISPLAY.addEventListener("input", codeDisplayReloadEv)
+			
+		} else {
+			DISPLAY.removeEventListener("input", codeDisplayReloadEv)
+		}
+	}
+		
 	function codeDisplayReloadEv() {
 		console.log("in codeDisplayReloadEv :3")
 		if (HTMLdisplayIframe == null || !codeDisplayAutoReload.checked) return;
