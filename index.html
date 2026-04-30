@@ -716,11 +716,23 @@
       setFontMultiSlider()
       setFont()
 			setFontSavingMethod()
+
+			
+			codeDisplayAutoReload.checked = settings.codeDisplay.CodeDisplayAutoReload
+			HTMLDisplayHeight.value = settings.codeDisplay.HTMLDisplayHeight
+			HTMLDisplayWidth.value = settings.codeDisplay.HTMLDisplayWidth
+			codeDisplayEnable.checked = settings.codeDisplay.HTMLdisplayIframeEnabled
+
+			setCodeDisplayAutoReload()
+			enableCodeDisplay() 
+			HTMLDisplaySetHeight() 
+			HTMLDisplaySetWidth()
+			enableCodeDisplay()
     } else {
   
     fileIdCount = 1;
     activeFile = 1;
-    settings = {wordWrap: true, AutoComplete: true, tabWidth: 3, FontMulti: 1, useShareSheet: false};
+    settings = {wordWrap: true, AutoComplete: true, tabWidth: 3, FontMulti: 1, useShareSheet: false, codeDisplay: {HTMLDisplayWidth: "700", HTMLDisplayHeight: "300", CodeDisplayAutoReload: true, HTMLdisplayIframeEnabled: false}};
     files = [{key: 1,  text: "", fileName: "new file", settings: {wordWrap: true, font: {mainFont: "scifi", secondFont: "none"}}}]
     fileList.innerHTML = "<button id='file1' onclick='openFile(1)' class='selectedFileButton'>new file</button>"
     }
@@ -988,7 +1000,11 @@
 	//codeDisplayBox codeDisplayAutoReload HTMLDisplayHeight HTMLDisplayWidth codeDisplayEnable
 	let HTMLdisplayIframe;
 	function enableCodeDisplay() {
+		settings.codeDisplay.HTMLdisplayIframeEnabled = codeDisplayEnable.checked
+		
 		if(codeDisplayEnable.checked) {
+			
+			
 			codeDisplayBox.innerHTML = ""
 			HTMLdisplayIframe = document.createElement("iframe")
 			HTMLdisplayIframe.width = HTMLDisplayWidth.value
@@ -997,7 +1013,8 @@
 			
 
 			HTMLdisplayIframe.src = "about:blank" //about:blank is same origin
-
+			
+			
 			HTMLdisplayIframe.addEventListener("load", () => {
 				//set the page to contents to be that of DISPLAY.innerText
 				if(HTMLdisplayIframe.contentDocument !== null) { //if HTMLdisplayIframe.contentDocument isnt nullish(null or undefied)
@@ -1016,6 +1033,7 @@
 			
 			codeDisplayBox.appendChild(HTMLdisplayIframe)
 		} else {
+			
 			HTMLdisplayIframe = undefined
 			codeDisplayBox.innerHTML = ""
 			DISPLAY.removeEventListener("input", codeDisplayReloadEv)
@@ -1023,12 +1041,14 @@
 	}
 
 	function HTMLDisplaySetHeight() {
+			settings.codeDisplay.HTMLDisplayHeight = HTMLDisplayHeight.value
 		if (HTMLdisplayIframe) {
 			HTMLdisplayIframe.height = HTMLDisplayHeight.value
 		}
 	}
 
 	function HTMLDisplaySetWidth() {
+			settings.codeDisplay.HTMLDisplayWidth = HTMLDisplayWidth.value
 		if (HTMLdisplayIframe) {
 			HTMLdisplayIframe.width = HTMLDisplayWidth.value
 		}
@@ -1038,7 +1058,8 @@
 	
 	
 	function codeDisplayReloadBTN() {
-
+		
+			
 		if(HTMLdisplayIframe == null) return;
 
 		if(HTMLdisplayIframe.contentDocument !== null) { //if HTMLdisplayIframe.contentDocument isnt nullish(null or undefied)
@@ -1052,6 +1073,8 @@
 	}
 
 	function setCodeDisplayAutoReload() {
+		settings.codeDisplay.CodeDisplayAutoReload = codeDisplayAutoReload.checked
+		
 		if (codeDisplayAutoReload.checked) {
 			if (HTMLdisplayIframe != null) { 
 				DISPLAY.addEventListener("input", codeDisplayReloadEv)
