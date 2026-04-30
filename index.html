@@ -321,7 +321,8 @@
 		const HTMLDisplayHeight = document.getElementById("HTMLDisplayHeight")
 		const HTMLDisplayWidth = document.getElementById("HTMLDisplayWidth")
 		const codeDisplayEnable = document.getElementById("codeDisplayEnable")
-		
+
+	  let HTMLdisplayIframe;
     async function displayFileText() {
       
       const UwUfile = await document.getElementById("inpuT").files[0]
@@ -998,7 +999,7 @@
 
 
 	//codeDisplayBox codeDisplayAutoReload HTMLDisplayHeight HTMLDisplayWidth codeDisplayEnable
-	let HTMLdisplayIframe;
+	
 	function enableCodeDisplay() {
 		settings.codeDisplay.HTMLdisplayIframeEnabled = codeDisplayEnable.checked
 		
