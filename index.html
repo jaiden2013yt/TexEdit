@@ -1053,9 +1053,9 @@
 
 	function setCodeDisplayAutoReload() {
 		if (codeDisplayAutoReload.checked) {
-			if (HTMLdisplayIframe !== null) 
+			if (HTMLdisplayIframe != null) { 
 				DISPLAY.addEventListener("input", codeDisplayReloadEv)
-			
+			}
 		} else {
 			DISPLAY.removeEventListener("input", codeDisplayReloadEv)
 		}
@@ -1065,7 +1065,7 @@
 		console.log("in codeDisplayReloadEv :3")
 		if (HTMLdisplayIframe == null || !codeDisplayAutoReload.checked) return;
 
-		if(HTMLdisplayIframe.contentDocument !== null) { //if HTMLdisplayIframe.contentDocument isnt nullish(null or undefied)
+		if(HTMLdisplayIframe.contentDocument != null) { //if HTMLdisplayIframe.contentDocument isnt nullish(null or undefied)
 			
 			HTMLdisplayIframe.contentDocument.open();
 			HTMLdisplayIframe.contentDocument.write(DISPLAY.innerText);
