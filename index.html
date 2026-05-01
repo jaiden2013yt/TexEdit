@@ -235,6 +235,7 @@
     <option value="none">- none -</option>
     <option value="notoColor">Color Emoji - Noto</option>
     <option value="OpenMoji">Color Emoji - OpenMoji</option> 
+		<option value="Twemoji">Color Emoji - Twemoji</option>
   </select>
   <span>autocorrect: </span><input onchange="disableAutocomplete(); saveToLocalStorage()" id="autocorrectCheckbox" type="checkbox" checked>
   
@@ -652,6 +653,7 @@
       none: "",
       notoColor: "'Noto Color Emoji',",
       OpenMoji: "'OpenMoji',",
+			Twemoji: "'Twemoji',",
     }
     function setFont() {
     // fontSelectionSelect.value fontOverlaySelectionSelect.value
